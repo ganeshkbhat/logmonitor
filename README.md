@@ -1,6 +1,6 @@
-# JsonLogViewerDevPm5
+# JSON Log Viewer and Monitor
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0. This repo needs [NodeJS](https://www.nodejs.org) to be installed along with [Angular CLI](https://github.com/angular/angular-cli) and [Typescript](https://www.typescriptlang.org/).
 
 ## Server setup
 
