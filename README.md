@@ -13,7 +13,7 @@ Run `ng build --target=production --environment=prod --output-path='./server/vie
 
 ### Main Application Folder
 
-The main application resides in the `./server` folder. The UI has been prebuilt for a demo; in case you want to check the features. THe repo also has dummy certificate files. However, if you want to be sure of safety, you can recreate your own certificates using openssl or any valid certificate authority. The git hub repository is ahead of the UI application developed. However, the repo nor the prebuild UI in the `./server/views/` folder `should not` break, in any scenario, while running the prebuilt demo UI.
+The main application resides in the `./server` folder. The UI has been prebuilt for a demo; in case you want to check the features. The repo also has dummy certificate files. However, if you want to be sure of safety, you can recreate your own certificates using openssl or any valid certificate authority. The git hub repository is ahead of the UI application developed. However, the repo nor the prebuild UI in the `./server/views/` folder `should not` break, in any scenario, while running the prebuilt demo UI.
 
 ## Running actual pre-built Application
 
