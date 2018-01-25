@@ -1,5 +1,7 @@
 # JSON Log Viewer and Monitor
 
+Log viewer was created with a goal to work with logs.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0. This repo needs [NodeJS](https://www.nodejs.org) to be installed along with [Angular CLI](https://github.com/angular/angular-cli) and [Typescript](https://www.typescriptlang.org/).
 
 ## Server setup
@@ -37,6 +39,18 @@ Tests have not been added since currently it is a simple application. TODO: Cons
 
 Tests have not been added since currently it is a simple application. TODO: Consider TDD for new features further.
 
-## Further help
+## Angular CLI Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Todo:
+
+FTP, Remote files (SSH/Windows Network access)
+
+Integration with your NodeJS Server cleanly with user security (npm package)
+
+Move to xtermjs ES6 Codes
+
+## License: 
+                    
+MIT License. Currently in Beta (V1.0.0). Developed by [Ganesh B](https://github.com/ganeshkbhat). Interested in contribution or Want to request a feature Leave a [Github Issue](https://github.com/ganeshkbhat/logmonitor/issues) or send a pull request.
