@@ -1,0 +1,23 @@
+<div id="staticpage" *ngIf="_ds.staticMonitor">
+  <!-- SIMPLE PANEL WITH PARAGRAPH -->
+  <div class="panel-mid">
+    <div class="panel panel-default panel-top-handle">
+      <div class="panel-body">
+        <a href="#" (click)="toggleStaticSettings('settings')">
+          <span>&nbsp;&nbsp;</span>
+          <span *ngIf="_ds.staticSettings">{{_ds.hideStatic}} </span>Log Settings
+          <span>&nbsp;&nbsp;</span>
+        </a>
+        <a href="" (click)="toggleStaticFilter()">
+          <span>&nbsp;&nbsp;</span>  
+          <span *ngIf="_ds.staticFilter">{{_ds.hideStatic}} </span>Log Filter
+          <span>&nbsp;&nbsp;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <app-staticsettings></app-staticsettings>
+  <app-staticlogs></app-staticlogs>
+
+  <!-- SIMPLE PANEL WITH PARAGRAPH -->
+</div>

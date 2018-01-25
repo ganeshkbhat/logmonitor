@@ -1,0 +1,5 @@
+:host {
+    display: block;
+  }
+  :host.ng2-tag-input-focus {}
+  .ng2-tag-input-field {}

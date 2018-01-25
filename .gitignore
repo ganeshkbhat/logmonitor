@@ -1,0 +1,5 @@
+node_modules
+server/log/access.log
+server/log/resync.2.log
+server/log/resync.log
+server/log/resync1.log

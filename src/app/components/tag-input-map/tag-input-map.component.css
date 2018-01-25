@@ -1,0 +1,12 @@
+.forms {
+    width:200px;
+    height:200px;
+    outline: 0 none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+  }
+  .optionsstyle {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }

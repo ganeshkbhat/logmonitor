@@ -1,0 +1,167 @@
+<div class="panel-mid font-sub-menu" *ngIf="_ds.streamSettings">
+  <div class="panel panel-default panel-top-handle">
+    <div class="panel-body">
+      <h3 class="pad-left-30">MONITOR SETTINGS</h3>
+      <div *ngIf="_ds.streamShowAuthFile === 'Auth'" class="panel-common">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-left-30">
+          <h4 class="margin-left">File Details (Required)</h4>
+          <br/>
+
+          <div class="input-group-sm col-lg-3 col-md-3 col-sm-12 col-xs-12 pull-left">
+            <input [(ngModel)]="_ds.streamLogFilePathString" type="text" class="form-control" placeholder="File Path">
+          </div>
+          <!--
+          <div class="input-group-sm col-lg-1 col-md-1 col-sm-2 col-xs-2">
+            -- OR --
+          </div>
+          <div class="input-group-sm col-lg-3 col-md-3 col-sm-12 col-xs-12 pull-left">
+            <input [(ngModel)]="_ds.streamLogFilePathSelect" type="file" class="form-control" placeholder="File Path">
+          </div>
+          -->
+        </div>
+      </div>
+      <div *ngIf="_ds.streamShowAuthFile === 'Type'" class="panel-common">
+        <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-left-30">
+          <h4 class="margin-left ">Log File Type (Required)</h4>
+          <br/>
+          <div class="input-group-sm col-lg-2 col-md-3 col-sm-12 col-xs-12 pull-left">
+            <select name="streamlogtype" id="streamlogtype" [(ngModel)]="_ds.streamLogType" class="form-control" placeholder="Select Log Type">
+              <option value="">SELECT LOG TYPE</option>
+              <option [value]="option" *ngFor="let option of _ds.streamLogFileOptions">{{option}} Log</option>
+            </select>
+          </div>
+          <div *ngIf="_ds.streamLogType === 'Define Other Seperator for'" class="input-group-sm col-lg-3 col-md-3 col-sm-12 col-xs-12 pull-left">
+            <select name="streamlogseperatortype" id="streamlogseperatortype" [(ngModel)]="_ds.streamLogSeperatorType" class="form-control"
+              placeholder="Select Show Options">
+              <option value="">SELECT SEPERATOR TYPE</option>
+              <option [value]="option" *ngFor="let option of _ds.streamLogSeperatorTypeOptions">{{option}} Log</option>
+            </select>
+          </div>
+          <div *ngIf="_ds.streamLogSeperatorType === 'Two Side Seperator'" class="input-group-sm col-lg-2 col-md-3 col-sm-12 col-xs-12 pull-left">
+            <input [(ngModel)]="_ds.streamLogDualSeperatorOne" type="text" class="form-control" placeholder="Starting Seperator Character">
+          </div>
+          <div *ngIf="_ds.streamLogSeperatorType === 'Two Side Seperator'" class="input-group-sm col-lg-2 col-md-3 col-sm-12 col-xs-12 pull-left">
+            <input [(ngModel)]="_ds.streamLogDualSeperatorTwo" type="text" class="form-control" placeholder="Ending Seperator Character">
+          </div>
+          <div *ngIf="_ds.streamLogSeperatorType === 'One Side Seperator'" class="input-group-sm col-lg-2 col-md-3 col-sm-12 col-xs-12 pull-left">
+            <input [(ngModel)]="_ds.streamLogSingleSeperator" type="text" class="form-control" placeholder="Single Seperator Character">
+          </div>
+          <div class="input-group-sm col-lg-3 col-md-3 col-sm-12 col-xs-12 pull-left">
+            <select name="" id="" [(ngModel)]="_ds.streamLogColumns" class="form-control" placeholder="Select Show Options">
+              <option value="">SELECT FORMAT MANAGEMENT OPTIONS</option>
+              <option value="streamcolumnfirstlineformat" (click)="streamFirstLineFormatShow()">Use First Line as Format (non-JSON only)</option>
+              <option value="streamcolumnformat" (click)="streamKeysShow()">Enter Log Column Format and View format</option>
+              <option value="streamcolumnshow" (click)="streamColumnsShow()">Enter Log Columns to Show for Unknown Format</option>
+            </select>
+          </div>
+        </div>
+        <div class="">
+          <div *ngIf="_ds.streamLogColumns === 'streamcolumnformat'" class="input-group-sm col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left">
+            <h4 class="pad-left-30">Provide Log Format and Provide Keys to Show</h4>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12  pad-left-30">
+              <app-tag-input placeholder="Type complete log column format one by one and press enter key" [(ngModel)]="_ds.streamLogColumnsFormat"
+                delimiterCode="188">
+              </app-tag-input>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <app-tag-input placeholder="Type log keys to show and press enter key" [(ngModel)]="_ds.streamLogColumnsKeys" delimiterCode="188">
+              </app-tag-input>
+            </div>
+          </div>
+          <div *ngIf="_ds.streamLogColumns === 'streamcolumnshow'" class="input-group-sm col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left pad-left-30">
+            <h4 class="margin-left ">Select Log Columns to Show</h4>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <app-tag-input-map placeholder="Type log key items to show and press enter key" format="">
+              </app-tag-input-map>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="_ds.streamShowAuthFile === 'Filter'" class="panel-common">
+        <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-left-30">
+          <h4 class="margin-left ">Log Filter (Default - No Filters)</h4>
+          <br/>
+          <div class="input-group-sm col-lg-3 col-md-3 col-sm-12 col-xs-12 pull-left">
+            <select name="streamcomparer" id="streamcomparer" [(ngModel)]="_ds.streamLogColumns" class="form-control" placeholder="Select Show Options">
+              <option value="">SELECT KEY FOR FILTER</option>
+              <option *ngFor="let option of _ds.streamFilterKeyList" [value]="option" (click)="streamEqualTo()">{{option}}</option>
+            </select>
+          </div>
+          <div class="input-group-sm col-lg-3 col-md-3 col-sm-12 col-xs-12 pull-left">
+            <select name="streamcomparer" id="streamcomparer" [(ngModel)]="_ds.streamLogColumns" class="form-control" placeholder="Select Show Options">
+              <option value="">SELECT FILTER TO COMPARER</option>
+              <option value="" (click)="streamEqualTo()">Key Equal To </option>
+              <option value="" (click)="streamGreaterThan()">Key Greater Than </option>
+              <option value="" (click)="streamLesserThan()">Key Lesser Than </option>
+              <option value="" (click)="streamContains()">Key Contains</option>
+              <option value="" (click)="streamDoesNotContain()">Key Does Not Contain</option>
+              <option value="" (click)="streamTypeOf()">Key Same Type Of</option>
+              <option value="" (click)="streamNotTypeOf()">Key Not Same Type Of</option>
+            </select>
+          </div>
+          <div class="input-group-sm col-lg-3 col-md-3 col-sm-12 col-xs-12 pull-left">
+            <input type="Comparision Value" class="form-control" placeholder="Comparision Value">
+          </div>
+          <div class="input-group-sm col-lg-3 col-md-3 col-sm-12 col-xs-12 pull-left">
+            <ul class="pager pull-left">
+              <li>
+                <a href="#" (click)="streamAddFilter()">Add Filter</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="table-scroll-filter col-lg-12 col-md-12 col-xs-12 divCellTable">
+            <div class="row borderCell" *ngFor="let item of _ds.streamFiltersKeys; let i = index;">
+              <div class="row divTable">
+                <div class="col-lg-1 col-md-1 col-xs-6 divTableHead">
+                  LOG NAME
+                </div>
+                <div class="col-lg-2 col-md-1 col-xs-6 divTableHead">
+                  HOSTNAME
+                </div>
+                <div class="col-lg-2 col-md-2 col-xs-6 divTableHead">
+                  TIME
+                </div>
+              </div>
+            </div>
+
+            <div class="row borderCell" *ngFor="let item of _ds.streamFiltersList; let i = index;">
+              <div class="row divTable">
+                <div class="col-lg-1 col-md-1 col-xs-6 divTableHead">
+                  {{item.key}}
+                </div>
+                <div class="col-lg-2 col-md-1 col-xs-6 divTableHead">
+                  {{item.comparer}}
+                </div>
+                <div class="col-lg-2 col-md-2 col-xs-6 divTableHead">
+                  {{item.comparervalue}}
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div *ngIf="_ds.streamShowAuthFile === 'Graph'" class="panel-common">
+        <div >
+          <span class="pad-left-30">V0.2 After MVP Release</span>
+          <br>
+          <span class="pad-left-30">Needs minimum log path, type (format defined), and graph (format defined)</span>
+        </div>
+      </div>
+
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top">
+        <div>
+          <ul class="pager pull-right">
+            <li>
+              <a href="#" (click)="startStreaming('settings')">Start LogView</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
