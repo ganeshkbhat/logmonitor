@@ -47,7 +47,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Current version 1.1.0
 
-### Change log - 1.1.0
+* Change log - 1.1.0
 
 Changed architecture from events based routing to Angular Router based routing
 -- Speed reduction, but scalable and performant
