@@ -1,8 +1,38 @@
-<div class="panel-mid font-sub-menu" *ngIf="_ds.streamSettings">
+<!-- SIMPLE PANEL WITH PARAGRAPH -->
+<div class="panel-mid">
+  <div class="panel panel-default panel-top-handle">
+    <div class="panel-body">
+      <a href="#" (click)="showauth()">
+        <span>&nbsp;&nbsp;</span>
+        File Path & Auth
+        <span>&nbsp;&nbsp; </span>
+      </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="panel-mid font-sub-menu">
   <div class="panel panel-default panel-top-handle">
     <div class="panel-body">
       <h3 class="pad-left-30">MONITOR SETTINGS</h3>
       <div *ngIf="_ds.streamShowAuthFile === 'Auth'" class="panel-common">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-left-30">
+          <h4 class="margin-left">Authentication Details (Required for remote or other owner's files, <span class="normal-font-size">Default file type - String line if file type option not specified</span>)</h4>
+          <br/>
+          <div class="input-group-sm col-lg-2 col-md-3 col-sm-12 col-xs-12 pull-left">
+            <select name="streamauthtype" id="streamauthtype" [(ngModel)]="_ds.streamAuthType" class="form-control" placeholder="Select Authentication Type">
+              <option value="" selected>AUTHENTICATION TYPE</option>
+              <option *ngFor="let option of _ds.streamAuthTypeOptions" [value]="option">{{option}}</option>
+            </select>
+          </div>
+          <div *ngIf="_ds.streamAuthType !== 'No Authentication or Local File' && _ds.streamAuthType !== ''" class="input-group-sm col-lg-3 col-md-3 col-sm-12 col-xs-12 pull-left">
+            <input type="text" class="form-control" placeholder="Admin/Root Username">
+          </div>
+          <div *ngIf="_ds.streamAuthType !== 'No Authentication or Local File' && _ds.streamAuthType !== ''" class="input-group-sm col-lg-3 col-md-3 col-sm-12 col-xs-12 pull-left">
+            <input type="password" class="form-control" placeholder="Password">
+          </div>
+        </div>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-left-30">
           <h4 class="margin-left">File Details (Required)</h4>
           <br/>
@@ -22,7 +52,7 @@
       </div>
       <div *ngIf="_ds.streamShowAuthFile === 'Type'" class="panel-common">
         <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-left-30">
-          <h4 class="margin-left ">Log File Type (Required)</h4>
+          <h4 class="margin-left ">Log File Type (Required, <span class="normal-font-size">Default file type - String line if file type option not specified</span>)</h4>
           <br/>
           <div class="input-group-sm col-lg-2 col-md-3 col-sm-12 col-xs-12 pull-left">
             <select name="streamlogtype" id="streamlogtype" [(ngModel)]="_ds.streamLogType" class="form-control" placeholder="Select Log Type">
@@ -156,8 +186,13 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top">
         <div>
           <ul class="pager pull-right">
+            
             <li>
               <a href="#" (click)="startStreaming('settings')">Start LogView</a>
+            </li>
+            
+            <li>
+              <a href="#" (click)="clearSettings()">Cancel</a>
             </li>
           </ul>
         </div>

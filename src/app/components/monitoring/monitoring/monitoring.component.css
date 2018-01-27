@@ -1,0 +1,8 @@
+/* ANGULAR MAIN */
+  
+.staticpage, .monitorpage, .homepage, .apprepute {
+    top: 75px;
+    position: fixed;
+    width: 100%;
+}
+

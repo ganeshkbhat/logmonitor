@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonEventsService } from '../../../services/commons/events/events.service';
 import { StreamEventsService } from '../../../services/stream/events/stream.events.service';
 import { StreamDataService } from '../../../services/stream/data/stream.data.service';
@@ -10,7 +11,7 @@ import { StreamDataService } from '../../../services/stream/data/stream.data.ser
 })
 export class MonitorsettingsComponent implements OnInit {
 
-  constructor(public _es: StreamEventsService, public _ces: CommonEventsService, public _ds: StreamDataService) {
+  constructor(public _es: StreamEventsService, public _ces: CommonEventsService, public _ds: StreamDataService, private _rtr: Router) {
     let that = this;
   }
 
@@ -23,15 +24,17 @@ export class MonitorsettingsComponent implements OnInit {
   streamColumnsShow() {}
 
   startStreaming(data) {
-    this._es.toggleStreamSettings(data);
     this._ds.streamSearch = true;
+    this._ds.streamSettings = false;
     this._ds.streamShowAuthFile = 'Auth';
+    this._rtr.navigateByUrl('/monitor/logs');
     return false;
   }
 
   clearSettings(){
     // Clear all variables first
     this._ds.streamShowAuthFile = 'Auth';
+    return false;
   }
 
   // make this pure function
@@ -46,14 +49,38 @@ export class MonitorsettingsComponent implements OnInit {
         this._ds.streamShowAuthFile = this._ds.streamShowAuthFileOptions[i+1];
       }
     }
+    return false;
   }
 
   shiftStreamPrevious() {
     this.shiftStreamSection('p');
+    return false;
   }
 
   shiftStreamNext() {
     this.shiftStreamSection('n');
+    return false;
+  }
+
+  showauth(){
+    this._ds.streamShowAuthFile = 'Auth';
+    this._ds.streamLogColumns = '';
+    return false;
+  }
+
+  showtype(){
+    this._ds.streamShowAuthFile = 'Type';
+    return false;
+  }
+
+  showfilter(){
+    this._ds.streamShowAuthFile = 'Filter'
+    return false;
+  }
+
+  showgraph(){
+    this._ds.streamShowAuthFile = 'Graph'
+    return false;
   }
 
   streamEqualTo(){}

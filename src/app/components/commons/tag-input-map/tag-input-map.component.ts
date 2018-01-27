@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StreamSocketsService } from '../../services/stream/sockets/stream.sockets.service';
-import { CommonsService } from '../../services/commons/functions/commons/commons.service';
+import { StreamSocketsService } from '../../../services/stream/sockets/stream.sockets.service';
+import { CommonsService } from '../../../services/commons/functions/commons/commons.service';
 
 @Component({
   selector: 'app-tag-input-map',
@@ -45,10 +45,12 @@ export class TagInputMapComponent implements OnInit {
 
   onAddAll() {
     this._ss.streamSelectedColumns = this._cs.clone(this._ss.streamOptionColumns);
+    return false;
   }
 
   onSubtractAll() {
     this._ss.streamSelectedColumns = [];
+    return false;
   }
 
 }

@@ -16,16 +16,6 @@ export class StaticEventsService {
   /**
    * 
    * 
-   * @param {any} data 
-   * @memberof StaticEventsService
-   */
-  toggleStaticSettings(data) {
-    this._ces._tsts.emit({ toggle: true, data: data });
-  }
-
-  /**
-   * 
-   * 
    * @memberof StaticEventsService
    */
   toggleStaticFilter() {

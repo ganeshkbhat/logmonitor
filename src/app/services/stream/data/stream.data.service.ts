@@ -59,8 +59,16 @@ export class StreamDataService extends DataService {
     ];
     streamShowAuthFile: String = 'Auth';
     streamAuthTypeOptions: String[] = [
-      'No Authentication or Local File',
-      'Root or Other User\'s File (Linux)'
+      'No Authentication or Local File'
+      /*
+      ,
+      'Root or Other User\'s File (Linux)',
+      'Administrator or Other User\'s File (Windows)',
+      'SSH Remote (Linux) Disabled (Remove Temp - Will slow the app)',
+      'Remote Group / Domain (Windows) Disabled (Remove Temp - Will slow the app)',
+      'FTP Disabled (Remove Temp - Will slow the app)',
+      'SFTP Disabled (Remove Temp - Will slow the app)'
+      */
     ];
     streamAuthType: String = '';
     

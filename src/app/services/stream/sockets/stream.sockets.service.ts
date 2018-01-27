@@ -33,14 +33,19 @@ export class StreamSocketsService {
         this.sockets = this._ss.getSocket();
 
         this.sockets.on('stream-log-change-data', function (data) {
+            // Change this to observable, check maintainability/efficiency
+            // Configured only for JSON logs
             if (data == null || data === null || typeof data == 'undefined') {
+                //console.log('test', data);
             } else {
+                //console.log('Data', data);
                 let logs;
                 if (data.lines.includes('null')) {
                     logs = data.lines.replace('}null', '}');
                     if (!logs || logs != null || logs !== null) {
                         let item = JSON.parse(logs);
                         item.i = data.no;
+                        //console.log(item);
                         that._ds.streamLogs.push(item);
                         that._ds.streamLogs = that._obp.transform(that._ds.streamLogs, '-i');
                         that._ces._sscstart.emit(item);
@@ -50,6 +55,7 @@ export class StreamSocketsService {
                     if ((!logs || logs != null || logs !== null) && (logs != "")) {
                         let item = JSON.parse(logs);
                         item.i = data.no;
+                        //console.log(item);
                         that._ds.streamLogs.push(item);
                         that._ds.streamLogs = that._obp.transform(that._ds.streamLogs, '-i');
                         that._ces._sscstart.emit(item);
@@ -59,6 +65,8 @@ export class StreamSocketsService {
         });
 
         this.sockets.on('stream-log-data', function (data) {
+            // Not used anymore
+            //console.log(data);
             if (data.length !== 0) {
                 that._ds.streamLogs = [];
                 for (let i = 0; i < data.lines.length; i++) {
@@ -78,6 +86,7 @@ export class StreamSocketsService {
                             }
                         } else {
                             if (data.lines[i] != null) {
+                                //console.log(data.lines[i]);
                                 that._ds.streamLogs.push(JSON.parse(data.lines[i]));
                                 that._ds.streamLogs = that._obp.transform(that._ds.streamLogs, '-time');
                                 that._ces._sscstart.emit(JSON.parse(data.lines[i]));
@@ -104,6 +113,7 @@ export class StreamSocketsService {
             stream_log_file_path: path,
             numberOfLinesToSend: 25
         });
+        //console.log('event trigger');
         this._ds.streamLogs = [];
     }
 
@@ -113,7 +123,7 @@ export class StreamSocketsService {
      * @memberof StreamSocketsService
      */
     restartStreaming(path: String) {
-        // TODO: Add this feature
+        // Check if needed
         this._ds.streamSettings = false;
         this._ds.streamSearch = true;
         this.sockets.emit('stream-start-monitoring-log', {

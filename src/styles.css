@@ -2,6 +2,7 @@
 /* PANEL */
 html {
     font-family: arial, sans-serif;
+    font-size: 0.9 em;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
   }
@@ -118,7 +119,7 @@ html {
     box-sizing: border-box;
   }
   html {
-    font-size: 12px;
+    font-size: 0.7em;
     font-weight: 400; 
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
@@ -1547,7 +1548,7 @@ html {
       overflow: hidden !important;
       min-width: 50px;
       text-align: center;
-      font-size: 0.9em;
+      font-size: 0.7em;
   }
   .divCellTable:nth-of-type(odd){
       /*background-color: #F9F9F9;*/
@@ -3290,6 +3291,13 @@ html {
       position: fixed;
       width: 100%;
   }
+
+.staticpage, .monitorpage, .homepage, .apprepute {
+  top: 175px;
+  position: fixed;
+  width: 100%;
+}
+
   .margin-top {
     margin-top: 10px;
   }
@@ -3329,4 +3337,8 @@ html {
 
 .font-sub-menu {
   color: grey;
+}
+
+.normal-font-size {
+  font-weight: normal !important; font-size: 0.9em !important;
 }

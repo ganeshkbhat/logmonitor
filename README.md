@@ -1,4 +1,4 @@
-# JSON Log Viewer and Monitor
+# Log Viewer and Monitor
 
 Log viewer was created with a goal to work with logs.
 
@@ -43,7 +43,18 @@ Tests have not been added since currently it is a simple application. TODO: Cons
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
+## Version
+
+Current version 1.1.0
+
+### Change log - 1.1.0
+
+Changed architecture from events based routing to Angular Router based routing
+-- Speed reduction, but scalable and performant
+
 ## Todo:
+
+Monitor features extension and static log viewer
 
 FTP, Remote files (SSH/Windows Network access)
 
@@ -53,4 +64,4 @@ Move to xtermjs ES6 Codes
 
 ## License: 
                     
-MIT License. Currently in Beta (V1.0.0). Developed by [Ganesh B](https://github.com/ganeshkbhat). Interested in contribution or Want to request a feature Leave a [Github Issue](https://github.com/ganeshkbhat/logmonitor/issues) or send a pull request.
+MIT License. Currently in Beta (V1.1.0). Developed by [Ganesh B](https://github.com/ganeshkbhat). Interested in contribution or Want to request a feature Leave a [Github Issue](https://github.com/ganeshkbhat/logmonitor/issues) or send a pull request.

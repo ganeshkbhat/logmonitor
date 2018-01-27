@@ -1,5 +1,5 @@
 {
-  "name": "json-log-viewer-dev-pm5",
+  "name": "logmonitor",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "chart.js": "^2.7.1",
     "core-js": "^2.4.1",
     "httpolyglot": "^0.1.2",
     "ngx-pipes": "^2.1.0",

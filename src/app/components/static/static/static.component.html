@@ -1,4 +1,4 @@
-<div id="staticpage" *ngIf="_ds.staticMonitor">
+<div id="staticpage" class="staticpage" *ngIf="_ds.staticMonitor">
   <!-- SIMPLE PANEL WITH PARAGRAPH -->
   <div class="panel-mid">
     <div class="panel panel-default panel-top-handle">
@@ -16,8 +16,7 @@
       </div>
     </div>
   </div>
-  <app-staticsettings></app-staticsettings>
-  <app-staticlogs></app-staticlogs>
-
-  <!-- SIMPLE PANEL WITH PARAGRAPH -->
+  
+  <router-outlet></router-outlet>
+  
 </div>

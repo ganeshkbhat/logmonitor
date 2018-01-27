@@ -12,6 +12,6 @@ export interface Commons {
  * @interface MenuScreenShows
  */
 export interface MenuScreenShows {
-    toggle? : boolean | null;
-    data? : any | null;
+    toggle? : boolean | undefined | null;
+    data? : any | undefined | null;
 }

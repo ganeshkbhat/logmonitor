@@ -14,7 +14,7 @@ export class DataService {
   home: Boolean = true;
 
   /*  */
-  stream: Boolean = false;
+  stream: Boolean = true;
   /*  */
   hide: String = 'Hide';
   /*  */

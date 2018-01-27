@@ -1,29 +1,5 @@
-<div id="monitorpage" *ngIf="_ds.stream">
-
-  <!-- SIMPLE PANEL WITH PARAGRAPH -->
-  <div class="panel-mid">
-    <div class="panel panel-default panel-top-handle">
-      <div class="panel-body">
-        <a href="#" *ngIf="!_ds.streamSettings" (click)="toggleStreamSettings('settingshide')">
-          <span>&nbsp;&nbsp;</span>
-          Monitor Settings
-          <span>&nbsp;&nbsp; </span>
-        </a>
-        <a href="#" (click)="showauth()" *ngIf="_ds.streamSettings">
-          <span>&nbsp;&nbsp;</span>
-          File Path & Auth
-          <span>&nbsp;&nbsp; </span>
-        </a>
-        
-      </div>
-    </div>
-  </div>
-  <app-monitorsettings></app-monitorsettings>
-
-  <!-- SIMPLE PANEL WITH PARAGRAPH -->
-
-  <!-- SIMPLE PANEL WITH SIMPLE DATATABLE AND PANEL HEADER -->
-  <app-monitorlogs></app-monitorlogs>
-  <!-- SIMPLE PANEL WITH SIMPLE DATATABLE AND PANEL HEADER -->
+<div id="monitorpage" class="monitorpage" *ngIf="_ds.stream">
+  
+  <router-outlet></router-outlet>
 
 </div>

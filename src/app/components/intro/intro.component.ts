@@ -10,14 +10,7 @@ import { DataService } from '../../services/commons/data/data.service';
 export class IntroComponent implements OnInit {
 
   constructor(public _es: CommonEventsService, public _ds: DataService) {
-    let that = this;
-    this._es._sh.subscribe((data) => {
-      if (data.toggle) {
-        that._ds.home = true;
-      } else {
-        that._ds.home = false;
-      }
-    });
+    
   }
 
   ngOnInit() {

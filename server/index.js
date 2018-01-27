@@ -45,6 +45,10 @@ appExpress.get('/', function (req, res) {
   res.sendFile(__dirname + 'server/views/index.html');
 });
 
+appExpress.all('*', function (req, res) {
+  res.redirect(`https://${host}:${port}`);
+});
+
 function initSockets() {
     io.on('connection', function (socket) {
         reader.startListeningForEvents(socket);
