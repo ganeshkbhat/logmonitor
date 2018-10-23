@@ -1,3 +1,6 @@
+# NOTE
+# PROJECT NOT MAINTAINED OR DEVELOPED ANYMORE
+
 # Log Viewer and Monitor
 
 Log viewer was created with a goal to work with logs.
